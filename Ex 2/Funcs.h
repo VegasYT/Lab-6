@@ -7,24 +7,24 @@
 
 namespace Constants
 {
-	inline constexpr int numStud{3};		// Число студентов в группе
-	inline constexpr int scoreRate1{4};		// Число оценок в 1-ой КТ
-	inline constexpr int scoreRate2{4};		// Число оценок во 2-ой КТ
-	inline constexpr int maxMark{5};		// Макс оценка за работу
-	inline constexpr int maxMarkKT{100};	// Макс оценка за КТ
-	inline constexpr int maxMarkAllKT{100}; // Макс оценка за Итог
+	inline constexpr int numStud{3};		// Р§РёСЃР»Рѕ СЃС‚СѓРґРµРЅС‚РѕРІ РІ РіСЂСѓРїРїРµ
+	inline constexpr int scoreRate1{4};		// Р§РёСЃР»Рѕ РѕС†РµРЅРѕРє РІ 1-РѕР№ РљРў
+	inline constexpr int scoreRate2{4};		// Р§РёСЃР»Рѕ РѕС†РµРЅРѕРє РІРѕ 2-РѕР№ РљРў
+	inline constexpr int maxMark{5};		// РњР°РєСЃ РѕС†РµРЅРєР° Р·Р° СЂР°Р±РѕС‚Сѓ
+	inline constexpr int maxMarkKT{100};	// РњР°РєСЃ РѕС†РµРЅРєР° Р·Р° РљРў
+	inline constexpr int maxMarkAllKT{100}; // РњР°РєСЃ РѕС†РµРЅРєР° Р·Р° РС‚РѕРі
 };
 
 
 struct Student
 {
-	std::string fio;                                          // Фио студента
-	int id;													  // Номер студента
-	int score[Constants::scoreRate1 + Constants::scoreRate2]; // Оценки студента
-	int KT1;												  // Ну тут и так все ясно
-	int KT2;												  // Ну тут и так все ясно
-	int allKT;											      // Ну тут тоже вроде все ясно
-	bool Auto = false;										  // Мечта любого студента
+	std::string fio;                                          // Р¤РёРѕ СЃС‚СѓРґРµРЅС‚Р°
+	int id;													  // РќРѕРјРµСЂ СЃС‚СѓРґРµРЅС‚Р°
+	int score[Constants::scoreRate1 + Constants::scoreRate2]; // РћС†РµРЅРєРё СЃС‚СѓРґРµРЅС‚Р°
+	int KT1;												  // РќСѓ С‚СѓС‚ Рё С‚Р°Рє РІСЃРµ СЏСЃРЅРѕ
+	int KT2;												  // РќСѓ С‚СѓС‚ Рё С‚Р°Рє РІСЃРµ СЏСЃРЅРѕ
+	int allKT;											      // РќСѓ С‚СѓС‚ С‚РѕР¶Рµ РІСЂРѕРґРµ РІСЃРµ СЏСЃРЅРѕ
+	bool Auto = false;										  // РњРµС‡С‚Р° Р»СЋР±РѕРіРѕ СЃС‚СѓРґРµРЅС‚Р°
 };
 
 
