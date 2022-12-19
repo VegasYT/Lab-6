@@ -4,23 +4,23 @@
 using namespace std;
 
 
-void getGroup(Student* array) // Функция для заполнения ФИО студента
+void getGroup(Student* array) // Р¤СѓРЅРєС†РёСЏ РґР»СЏ Р·Р°РїРѕР»РЅРµРЅРёСЏ Р¤РРћ СЃС‚СѓРґРµРЅС‚Р°
 {
 	for (int i{ 0 }; i < Constants::numStud; ++i)
 	{
 		array[i].id = i + 1;
-		cout << "студент N" << array[i].id << ": ";
+		cout << "СЃС‚СѓРґРµРЅС‚ N" << array[i].id << ": ";
 		getline(cin >> ws, array[i].fio);
 	}
 }
 
 
-void getScoreRate(Student* array, int num) // Функция для получения оценок студента
+void getScoreRate(Student* array, int num) // Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїРѕР»СѓС‡РµРЅРёСЏ РѕС†РµРЅРѕРє СЃС‚СѓРґРµРЅС‚Р°
 {
 	if (num < 0 || num > Constants::numStud - 1) 
 		return;
 
-	cout << "Оценки студента " << array[num].fio << ": ";
+	cout << "РћС†РµРЅРєРё СЃС‚СѓРґРµРЅС‚Р° " << array[num].fio << ": ";
 	for (int i{0}; i < Constants::scoreRate1 + Constants::scoreRate2; i++)
 		cin >> array[num].score[i];
 
@@ -28,7 +28,7 @@ void getScoreRate(Student* array, int num) // Функция для получения оценок студе
 		return;
 	else
 	{
-		cout << "Вы ввели неверную оценку, введите оценки еще раз: ";
+		cout << "Р’С‹ РІРІРµР»Рё РЅРµРІРµСЂРЅСѓСЋ РѕС†РµРЅРєСѓ, РІРІРµРґРёС‚Рµ РѕС†РµРЅРєРё РµС‰Рµ СЂР°Р·: ";
 		getScoreRate(array, num);
 	}
 }
@@ -39,7 +39,7 @@ void calcKT(Student* array, int num)
 	double sumScoreRate1{ 0.0 };
 	double sumScoreRate2{ 0.0 };
 
-	// Расчет 1-ой КТ
+	// Р Р°СЃС‡РµС‚ 1-РѕР№ РљРў
 	for (int i{ 0 }; i < Constants::scoreRate1; i++) 
 	{
 		sumScoreRate1 += (array[num].score[i] / static_cast<double>(Constants::maxMark));
@@ -48,7 +48,7 @@ void calcKT(Student* array, int num)
 	double KT1 = (Constants::maxMarkKT / Constants::scoreRate1) * sumScoreRate1;
 
 
-	// Расчет 2-ой КТ
+	// Р Р°СЃС‡РµС‚ 2-РѕР№ РљРў
 	for (int i{Constants::scoreRate1}; i < (Constants::scoreRate2) * 2; i++)
 	{
 		sumScoreRate2 += (array[num].score[i] / static_cast<double>(Constants::maxMark));
@@ -57,20 +57,20 @@ void calcKT(Student* array, int num)
 	double KT2 = (Constants::maxMarkKT / Constants::scoreRate2) * sumScoreRate2;
 
 
-	// Расчет итога
+	// Р Р°СЃС‡РµС‚ РёС‚РѕРіР°
 	int allKT = 0;
 
 	allKT = ((KT1 + KT2) / (Constants::maxMarkKT + Constants::maxMarkKT)) * Constants::maxMarkAllKT;
 
 
 
-	array[num].KT1 = KT1;	 // Заносим балы за КТ и Итог в структуру студента
+	array[num].KT1 = KT1;	 // Р—Р°РЅРѕСЃРёРј Р±Р°Р»С‹ Р·Р° РљРў Рё РС‚РѕРі РІ СЃС‚СЂСѓРєС‚СѓСЂСѓ СЃС‚СѓРґРµРЅС‚Р°
 	array[num].KT2 = KT2;	 //
 	array[num].allKT = allKT;//
 }
 
 
-void Auto(Student* array, int num) // Будет автомат или нет
+void Auto(Student* array, int num) // Р‘СѓРґРµС‚ Р°РІС‚РѕРјР°С‚ РёР»Рё РЅРµС‚
 {
 	if (array[num].allKT >= 50)
 	{
@@ -79,10 +79,10 @@ void Auto(Student* array, int num) // Будет автомат или нет
 }
 
 
-bool isMarsOk(int* marks, int size) // Функция для проверки введенной оценки
+bool isMarsOk(int* marks, int size) // Р¤СѓРЅРєС†РёСЏ РґР»СЏ РїСЂРѕРІРµСЂРєРё РІРІРµРґРµРЅРЅРѕР№ РѕС†РµРЅРєРё
 {
 	for (int i{ 0 }; i < size; ++i)
-		if (marks[i] < 0 || marks[i] > Constants::maxMark) // Если оценка меньше 0 или больше 5, то
+		if (marks[i] < 0 || marks[i] > Constants::maxMark) // Р•СЃР»Рё РѕС†РµРЅРєР° РјРµРЅСЊС€Рµ 0 РёР»Рё Р±РѕР»СЊС€Рµ 5, С‚Рѕ
 			return false;
 	
 	return true;
